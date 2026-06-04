@@ -840,3 +840,142 @@ details[open] .faq-chevron { transform: rotate(180deg); }
   color: rgba(99,120,160,0.5);
 }
 
+/* ── JWT Decoder ─────────────────────────────────────────────────────────────── */
+.jwt-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 1rem; align-items: start; }
+.jwt-output-col { display: flex; flex-direction: column; gap: 0.75rem; }
+.jwt-badge {
+  display: inline-flex; align-items: center; gap: 0.375rem;
+  padding: 0.25rem 0.75rem; border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 600; font-family: 'JetBrains Mono', monospace;
+}
+.jwt-badge-valid { background: rgba(52,211,153,0.1); color: var(--brand-green); border: 1px solid rgba(52,211,153,0.25); }
+.jwt-badge-expired { background: rgba(248,113,113,0.1); color: var(--brand-red); border: 1px solid rgba(248,113,113,0.25); }
+.jwt-meta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; }
+.jwt-meta-card {
+  padding: 0.625rem 0.875rem; background: var(--bg-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);
+}
+.jwt-meta-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+.jwt-meta-val { font-size: 0.8125rem; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; word-break: break-all; }
+.jwt-expired-text { color: var(--brand-red) !important; }
+.jwt-valid-text   { color: var(--brand-green) !important; }
+.jwt-tabs { display: flex; gap: 0.25rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.25rem; }
+.jwt-tab-btn {
+  flex: 1; padding: 0.375rem 0.5rem; border: none; border-radius: 4px;
+  font-size: 0.75rem; font-weight: 600; cursor: pointer;
+  background: transparent; color: var(--text-muted); transition: all 0.15s;
+}
+.jwt-tab-btn-active { background: rgba(56,189,248,0.12); color: var(--brand-blue); }
+.jwt-tab-btn:hover:not(.jwt-tab-btn-active) { color: var(--text-secondary); background: rgba(99,120,160,0.08); }
+
+/* ── Password Generator ──────────────────────────────────────────────────────── */
+.pw-layout { display: grid; grid-template-columns: 280px 1fr; gap: 1rem; align-items: start; }
+@media (max-width: 700px) { .pw-layout { grid-template-columns: 1fr; } }
+.pw-controls-card {
+  display: flex; flex-direction: column; gap: 1.25rem;
+  padding: 1.25rem; background: var(--bg-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+}
+.pw-control-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.pw-control-row { display: flex; justify-content: space-between; align-items: center; }
+.pw-control-label { font-size: 0.75rem; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+.pw-length-val { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; color: var(--brand-blue); font-weight: 600; }
+.pw-slider {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 4px; border-radius: 2px;
+  background: rgba(99,120,160,0.2); outline: none; cursor: pointer;
+}
+.pw-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--brand-blue); cursor: pointer;
+  box-shadow: 0 0 0 2px rgba(56,189,248,0.2);
+}
+.pw-slider-ticks { display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+.pw-toggles { display: flex; flex-direction: column; gap: 0.375rem; }
+.pw-toggle {
+  display: flex; align-items: center; gap: 0.625rem;
+  padding: 0.5rem 0.75rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle); background: transparent;
+  cursor: pointer; transition: all 0.15s; width: 100%; text-align: left;
+}
+.pw-toggle:hover { background: rgba(99,120,160,0.08); }
+.pw-toggle-on { border-color: rgba(56,189,248,0.25); background: rgba(56,189,248,0.05) !important; }
+.pw-toggle-dot {
+  width: 32px; height: 18px; border-radius: 9px; flex-shrink: 0;
+  background: rgba(99,120,160,0.2); border: 1px solid var(--border-subtle);
+  position: relative; transition: background 0.2s;
+}
+.pw-toggle-dot::after {
+  content: ''; position: absolute; width: 12px; height: 12px;
+  border-radius: 50%; background: var(--text-muted); top: 2px; left: 2px;
+  transition: all 0.2s;
+}
+.pw-toggle-on .pw-toggle-dot { background: rgba(56,189,248,0.3); border-color: rgba(56,189,248,0.4); }
+.pw-toggle-on .pw-toggle-dot::after { background: var(--brand-blue); left: 16px; }
+.pw-toggle-label { font-size: 0.8125rem; color: var(--text-secondary); }
+.pw-toggle-on .pw-toggle-label { color: var(--text-primary); }
+.pw-output-col { display: flex; flex-direction: column; gap: 0.75rem; }
+.pw-strength-bar-wrap {
+  padding: 0.875rem 1rem; background: var(--bg-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);
+}
+.pw-strength-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.pw-strength-label { font-size: 0.75rem; color: var(--text-muted); }
+.pw-strength-name { font-size: 0.8125rem; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+.pw-strength-track { height: 5px; background: rgba(99,120,160,0.15); border-radius: 3px; overflow: hidden; }
+.pw-strength-fill { height: 100%; border-radius: 3px; transition: width 0.3s ease, background 0.3s; }
+
+/* ── Regex Tester ─────────────────────────────────────────────────────────────── */
+.regex-examples-row { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 0.875rem; }
+.regex-example-chip {
+  padding: 0.25rem 0.75rem; border-radius: 9999px;
+  font-size: 0.75rem; font-weight: 500; cursor: pointer;
+  background: rgba(99,120,160,0.08); border: 1px solid var(--border-subtle);
+  color: var(--text-muted); transition: all 0.15s;
+}
+.regex-example-chip:hover { color: var(--brand-blue); border-color: rgba(56,189,248,0.3); background: rgba(56,189,248,0.06); }
+.regex-pattern-row {
+  display: flex; align-items: center; gap: 0; margin-bottom: 1rem;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md); overflow: hidden; padding: 0.125rem;
+}
+.regex-delimiter {
+  padding: 0.5rem 0.625rem; font-family: 'JetBrains Mono', monospace;
+  font-size: 1.125rem; color: var(--text-muted); flex-shrink: 0; line-height: 1;
+}
+.regex-pattern-input {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.9375rem;
+  color: var(--brand-green); padding: 0.5rem 0.25rem;
+  caret-color: var(--brand-blue);
+}
+.regex-flags-input {
+  width: 64px; background: transparent; border: none;
+  border-left: 1px solid var(--border-subtle); outline: none;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.9375rem;
+  color: var(--brand-orange); padding: 0.5rem 0.625rem;
+}
+.regex-match-count { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; }
+mark.regex-match {
+  background: rgba(56,189,248,0.25); color: var(--brand-blue);
+  border-radius: 2px; padding: 0 1px;
+}
+.regex-matches-list {
+  margin-top: 0.75rem; background: var(--bg-card);
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden;
+}
+.regex-matches-header {
+  padding: 0.5rem 1rem; border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;
+  letter-spacing: 0.06em; background: rgba(0,0,0,0.15);
+}
+.regex-match-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.5rem 1rem; border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.8125rem;
+}
+.regex-match-row:last-child { border-bottom: none; }
+.regex-match-idx { font-family: 'JetBrains Mono', monospace; color: var(--text-muted); width: 2rem; flex-shrink: 0; }
+.regex-match-val { font-family: 'JetBrains Mono', monospace; color: var(--brand-green); flex: 1; word-break: break-all; }
+.regex-match-pos { font-family: 'JetBrains Mono', monospace; color: var(--text-muted); font-size: 0.75rem; flex-shrink: 0; }
+.regex-match-more { padding: 0.5rem 1rem; font-size: 0.8125rem; color: var(--text-muted); font-style: italic; }

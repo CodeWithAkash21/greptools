@@ -5,15 +5,17 @@ import AnalyticsLoader from '@/components/legal/AnalyticsLoader';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'grepTools — Fast Free Browser-Based Developer Tools',
-  description: 'grepTools provides fast, free browser-based developer utilities including JSON formatting, Base64 encoding, URL encoding, UUID generation, and timestamp conversion.',
+  title: 'grepTools — Free Browser-Based Developer Tools',
+  description:
+    'grepTools is a fast, privacy-first developer tools platform with 10 browser-based utilities: JSON formatter, Base64 encoder, URL encoder, UUID generator, Unix timestamp converter, JWT decoder, password generator, regex tester, YAML to JSON converter, and SQL formatter.',
   metadataBase: new URL('https://greptools.dev'),
   alternates: {
     canonical: 'https://greptools.dev',
   },
   openGraph: {
-    title: 'grepTools — Fast Free Browser-Based Developer Tools',
-    description: 'grepTools provides fast, free browser-based developer utilities including JSON formatting, Base64 encoding, URL encoding, UUID generation, and timestamp conversion.',
+    title: 'grepTools — Free Browser-Based Developer Tools',
+    description:
+      'grepTools has 10 browser-based developer utilities: JSON, Base64, URL encoding, UUID, timestamps, JWT, passwords, regex, YAML, and SQL — all client-side, no signup, no data transmitted.',
     url: 'https://greptools.dev',
     siteName: 'grepTools',
     images: [
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'grepTools Cover',
+        alt: 'grepTools — Browser-Based Developer Utilities',
       },
     ],
     type: 'website',
@@ -29,8 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'grepTools — Fast Free Browser-Based Developer Tools',
-    description: 'grepTools provides fast, free browser-based developer utilities including JSON formatting, Base64 encoding, URL encoding, UUID generation, and timestamp conversion.',
+    title: 'grepTools — Free Browser-Based Developer Tools',
+    description:
+      'grepTools has 10 browser-based developer utilities: JSON, Base64, URL, UUID, timestamps, JWT, passwords, regex, YAML, and SQL. Free, no signup, client-side.',
     images: ['/og.png'],
     site: '@greptools',
   },

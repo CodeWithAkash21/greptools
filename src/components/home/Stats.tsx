@@ -3,19 +3,31 @@
 import { motion } from 'framer-motion';
 
 const STATS = [
-  { value: '24+', label: 'Utilities Online', desc: 'Covering key formatting, decoding, generator and hash utilities.' },
-  { value: 'Local', label: 'Tool Processing', desc: 'Tool inputs are processed locally in your browser and are not intentionally transmitted to our servers.' },
-  { value: 'Client', label: 'Side Execution', desc: 'Computations execute entirely using local browser-based resources.' },
-  { value: 'Free', label: 'Forever', desc: 'Permanent free access with no paid limits or signups.' },
+  {
+    value: '10',
+    label: 'Live Tools',
+    desc: 'JSON, Base64, URL, UUID, Timestamps, JWT, Passwords, Regex, YAML, and SQL — all production-ready.',
+  },
+  {
+    value: '100%',
+    label: 'Client-Side',
+    desc: 'Every computation runs in your browser. Tool inputs are not intentionally transmitted to our servers.',
+  },
+  {
+    value: '0',
+    label: 'Backend Required',
+    desc: 'No API calls, no database, no rate limits. Works offline after the page loads.',
+  },
+  {
+    value: 'Free',
+    label: 'Forever',
+    desc: 'No paid tiers, no usage caps, no signup walls. grepTools is and will remain free.',
+  },
 ];
 
 const CONTAINER = {
   hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
+  show: { transition: { staggerChildren: 0.1 } },
 };
 
 const ITEM = {
@@ -23,10 +35,7 @@ const ITEM = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.16, 1, 0.3, 1] as const,
-    },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
 
@@ -39,18 +48,18 @@ export default function Stats() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 text-center"
         >
           {STATS.map((stat, idx) => (
             <motion.div
               key={idx}
               variants={ITEM}
-              className="p-8 rounded-xl bg-white/[0.01] border border-white/5 backdrop-blur-sm"
+              className="p-8 rounded-xl bg-white/[0.01] border border-white/5 backdrop-blur-sm hover:border-white/10 hover:bg-white/[0.02] transition-all duration-300"
             >
-              <div className="text-3xl sm:text-4xl font-extrabold text-blue-500 mb-2 tracking-tight">
+              <div className="text-3xl sm:text-4xl font-extrabold text-blue-500 mb-2 tracking-tight font-mono">
                 {stat.value}
               </div>
-              <div className="text-sm font-semibold text-slate-250 mb-3">
+              <div className="text-sm font-semibold text-slate-200 mb-3">
                 {stat.label}
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
